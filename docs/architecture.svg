@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1000" height="640" viewBox="0 0 1000 640" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI', system-ui, -apple-system, sans-serif">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+    <linearGradient id="inputGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e40af"/>
+      <stop offset="100%" style="stop-color:#1d4ed8"/>
+    </linearGradient>
+    <linearGradient id="agentGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#6d28d9"/>
+      <stop offset="100%" style="stop-color:#7c3aed"/>
+    </linearGradient>
+    <linearGradient id="toolGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#065f46"/>
+      <stop offset="100%" style="stop-color:#047857"/>
+    </linearGradient>
+    <linearGradient id="outputGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#92400e"/>
+      <stop offset="100%" style="stop-color:#b45309"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000000" flood-opacity="0.4"/>
+    </filter>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#64748b"/>
+    </marker>
+    <marker id="arrow-blue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#3b82f6"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#10b981"/>
+    </marker>
+    <marker id="arrow-amber" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#f59e0b"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1000" height="640" fill="url(#bgGrad)" rx="12"/>
+
+  <!-- Title -->
+  <text x="500" y="42" text-anchor="middle" font-size="22" font-weight="700" fill="#f1f5f9" letter-spacing="0.5">Nexus Agent — Architecture Diagram</text>
+  <text x="500" y="64" text-anchor="middle" font-size="12" fill="#94a3b8">FastAPI Backend · Groq LLM · React Frontend · Docker Deployed</text>
+  <line x1="80" y1="76" x2="920" y2="76" stroke="#334155" stroke-width="1"/>
+
+  <!-- ═══════════════ COLUMN 1: INPUT PIPELINE ═══════════════ -->
+  <rect x="30" y="95" width="185" height="460" rx="12" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="30" y="95" width="185" height="36" rx="12" fill="url(#inputGrad)"/>
+  <rect x="30" y="119" width="185" height="12" fill="url(#inputGrad)"/>
+  <text x="122" y="119" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff" letter-spacing="1">INPUT PIPELINE</text>
+
+  <!-- User -->
+  <rect x="50" y="148" width="145" height="38" rx="8" fill="#1e40af" stroke="#3b82f6" stroke-width="1"/>
+  <text x="122" y="162" text-anchor="middle" font-size="10" font-weight="600" fill="#bfdbfe">👤 User Browser</text>
+  <text x="122" y="176" text-anchor="middle" font-size="9" fill="#93c5fd">React Chat UI (Vite)</text>
+
+  <!-- Express Proxy -->
+  <rect x="50" y="200" width="145" height="38" rx="8" fill="#1e3a5f" stroke="#60a5fa" stroke-width="1"/>
+  <text x="122" y="214" text-anchor="middle" font-size="10" font-weight="600" fill="#93c5fd">⚡ Express Proxy</text>
+  <text x="122" y="228" text-anchor="middle" font-size="9" fill="#64748b">Node.js · Port 8080</text>
+
+  <!-- Input types -->
+  <text x="122" y="260" text-anchor="middle" font-size="10" font-weight="600" fill="#7dd3fc">Input Types</text>
+  <line x1="55" y1="265" x2="190" y2="265" stroke="#334155" stroke-width="1"/>
+
+  <!-- Input type boxes -->
+  <rect x="50" y="272" width="145" height="28" rx="6" fill="#172554" stroke="#2563eb" stroke-width="1"/>
+  <text x="122" y="291" text-anchor="middle" font-size="10" fill="#93c5fd">📝 Text — plain or structured</text>
+
+  <rect x="50" y="306" width="145" height="28" rx="6" fill="#172554" stroke="#2563eb" stroke-width="1"/>
+  <text x="122" y="325" text-anchor="middle" font-size="10" fill="#93c5fd">🖼 Image — JPG / PNG</text>
+
+  <rect x="50" y="340" width="145" height="28" rx="6" fill="#172554" stroke="#2563eb" stroke-width="1"/>
+  <text x="122" y="359" text-anchor="middle" font-size="10" fill="#93c5fd">📄 PDF — text or scanned</text>
+
+  <rect x="50" y="374" width="145" height="28" rx="6" fill="#172554" stroke="#2563eb" stroke-width="1"/>
+  <text x="122" y="393" text-anchor="middle" font-size="10" fill="#93c5fd">🎙 Audio — MP3/WAV/M4A</text>
+
+  <rect x="50" y="408" width="145" height="28" rx="6" fill="#172554" stroke="#2563eb" stroke-width="1"/>
+  <text x="122" y="422" text-anchor="middle" font-size="10" fill="#93c5fd">🔗 YouTube URL</text>
+  <text x="122" y="434" text-anchor="middle" font-size="9" fill="#64748b">auto-detected in any input</text>
+
+  <text x="122" y="470" text-anchor="middle" font-size="9" fill="#64748b">Multiple files per request</text>
+  <text x="122" y="483" text-anchor="middle" font-size="9" fill="#64748b">multipart/form-data</text>
+
+  <!-- ═══════════════ COLUMN 2: AGENT CORE ═══════════════ -->
+  <rect x="265" y="95" width="210" height="460" rx="12" fill="#2e1065" stroke="#7c3aed" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="265" y="95" width="210" height="36" rx="12" fill="url(#agentGrad)"/>
+  <rect x="265" y="119" width="210" height="12" fill="url(#agentGrad)"/>
+  <text x="370" y="119" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff" letter-spacing="1">AGENT CORE</text>
+
+  <!-- FastAPI -->
+  <rect x="282" y="148" width="176" height="38" rx="8" fill="#4c1d95" stroke="#7c3aed" stroke-width="1"/>
+  <text x="370" y="162" text-anchor="middle" font-size="10" font-weight="600" fill="#ddd6fe">🚀 FastAPI Backend</text>
+  <text x="370" y="176" text-anchor="middle" font-size="9" fill="#a78bfa">Python 3.12 · Port 8000</text>
+
+  <!-- Groq LLM -->
+  <rect x="282" y="200" width="176" height="50" rx="8" fill="#3b0764" stroke="#8b5cf6" stroke-width="1.5" filter="url(#glow)"/>
+  <text x="370" y="217" text-anchor="middle" font-size="10" font-weight="700" fill="#e9d5ff">🧠 Groq LLM</text>
+  <text x="370" y="231" text-anchor="middle" font-size="9" fill="#c4b5fd">llama-3.3-70b-versatile</text>
+  <text x="370" y="244" text-anchor="middle" font-size="9" fill="#a78bfa">JSON-mode · temp 0.1</text>
+
+  <!-- Steps -->
+  <text x="370" y="276" text-anchor="middle" font-size="10" font-weight="600" fill="#c084fc">Processing Pipeline</text>
+  <line x1="285" y1="281" x2="455" y2="281" stroke="#4c1d95" stroke-width="1"/>
+
+  <rect x="282" y="288" width="176" height="28" rx="6" fill="#1e1b4b" stroke="#6d28d9" stroke-width="1"/>
+  <text x="370" y="307" text-anchor="middle" font-size="10" fill="#c4b5fd">① Extract all file content</text>
+
+  <rect x="282" y="322" width="176" height="28" rx="6" fill="#1e1b4b" stroke="#6d28d9" stroke-width="1"/>
+  <text x="370" y="341" text-anchor="middle" font-size="10" fill="#c4b5fd">② Auto-detect YouTube URLs</text>
+
+  <rect x="282" y="356" width="176" height="28" rx="6" fill="#1e1b4b" stroke="#6d28d9" stroke-width="1"/>
+  <text x="370" y="375" text-anchor="middle" font-size="10" fill="#c4b5fd">③ LLM intent detection</text>
+
+  <rect x="282" y="390" width="176" height="28" rx="6" fill="#1e1b4b" stroke="#6d28d9" stroke-width="1"/>
+  <text x="370" y="409" text-anchor="middle" font-size="10" fill="#c4b5fd">④ Tool plan (JSON mode)</text>
+
+  <rect x="282" y="424" width="176" height="28" rx="6" fill="#1e1b4b" stroke="#6d28d9" stroke-width="1"/>
+  <text x="370" y="443" text-anchor="middle" font-size="10" fill="#c4b5fd">⑤ Execute tool chain</text>
+
+  <rect x="282" y="458" width="176" height="28" rx="6" fill="#1e1b4b" stroke="#6d28d9" stroke-width="1"/>
+  <text x="370" y="477" text-anchor="middle" font-size="10" fill="#c4b5fd">⑥ Return result + plan trace</text>
+
+  <!-- ═══════════════ COLUMN 3: TOOL REGISTRY ═══════════════ -->
+  <rect x="525" y="95" width="210" height="460" rx="12" fill="#022c22" stroke="#10b981" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="525" y="95" width="210" height="36" rx="12" fill="url(#toolGrad)"/>
+  <rect x="525" y="119" width="210" height="12" fill="url(#toolGrad)"/>
+  <text x="630" y="119" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff" letter-spacing="1">TOOL REGISTRY</text>
+
+  <!-- Tool items -->
+  <rect x="542" y="148" width="176" height="38" rx="8" fill="#064e3b" stroke="#10b981" stroke-width="1"/>
+  <text x="630" y="163" text-anchor="middle" font-size="10" font-weight="600" fill="#6ee7b7">🔍 OCR Tool</text>
+  <text x="630" y="177" text-anchor="middle" font-size="9" fill="#34d399">pytesseract · Pillow · confidence %</text>
+
+  <rect x="542" y="194" width="176" height="38" rx="8" fill="#064e3b" stroke="#10b981" stroke-width="1"/>
+  <text x="630" y="209" text-anchor="middle" font-size="10" font-weight="600" fill="#6ee7b7">📄 PDF Parser</text>
+  <text x="630" y="223" text-anchor="middle" font-size="9" fill="#34d399">pypdf · page count · text extract</text>
+
+  <rect x="542" y="240" width="176" height="38" rx="8" fill="#064e3b" stroke="#10b981" stroke-width="1"/>
+  <text x="630" y="255" text-anchor="middle" font-size="10" font-weight="600" fill="#6ee7b7">🎙 Audio Transcriber</text>
+  <text x="630" y="269" text-anchor="middle" font-size="9" fill="#34d399">Groq Whisper large-v3</text>
+
+  <rect x="542" y="286" width="176" height="38" rx="8" fill="#064e3b" stroke="#10b981" stroke-width="1"/>
+  <text x="630" y="301" text-anchor="middle" font-size="10" font-weight="600" fill="#6ee7b7">▶ YouTube Fetcher</text>
+  <text x="630" y="315" text-anchor="middle" font-size="9" fill="#34d399">youtube-transcript-api</text>
+
+  <rect x="542" y="332" width="176" height="38" rx="8" fill="#064e3b" stroke="#10b981" stroke-width="1"/>
+  <text x="630" y="347" text-anchor="middle" font-size="10" font-weight="600" fill="#6ee7b7">📊 Summarizer</text>
+  <text x="630" y="361" text-anchor="middle" font-size="9" fill="#34d399">1-line · 3 bullets · 5 sentences</text>
+
+  <rect x="542" y="378" width="176" height="38" rx="8" fill="#064e3b" stroke="#10b981" stroke-width="1"/>
+  <text x="630" y="393" text-anchor="middle" font-size="10" font-weight="600" fill="#6ee7b7">💬 Sentiment Analyzer</text>
+  <text x="630" y="407" text-anchor="middle" font-size="9" fill="#34d399">label · confidence · justification</text>
+
+  <rect x="542" y="424" width="176" height="38" rx="8" fill="#064e3b" stroke="#10b981" stroke-width="1"/>
+  <text x="630" y="439" text-anchor="middle" font-size="10" font-weight="600" fill="#6ee7b7">💻 Code Explainer</text>
+  <text x="630" y="453" text-anchor="middle" font-size="9" fill="#34d399">language · bugs · O(n) complexity</text>
+
+  <rect x="542" y="470" width="176" height="38" rx="8" fill="#064e3b" stroke="#10b981" stroke-width="1"/>
+  <text x="630" y="485" text-anchor="middle" font-size="10" font-weight="600" fill="#6ee7b7">🔀 Cross-Input Reasoner</text>
+  <text x="630" y="499" text-anchor="middle" font-size="9" fill="#34d399">multi-file unified QA</text>
+
+  <!-- ═══════════════ COLUMN 4: OUTPUT ═══════════════ -->
+  <rect x="785" y="95" width="185" height="460" rx="12" fill="#1c1109" stroke="#f59e0b" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="785" y="95" width="185" height="36" rx="12" fill="url(#outputGrad)"/>
+  <rect x="785" y="119" width="185" height="12" fill="url(#outputGrad)"/>
+  <text x="878" y="119" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff" letter-spacing="1">OUTPUT</text>
+
+  <rect x="802" y="148" width="151" height="38" rx="8" fill="#78350f" stroke="#f59e0b" stroke-width="1"/>
+  <text x="878" y="163" text-anchor="middle" font-size="10" font-weight="600" fill="#fde68a">📋 Final Answer</text>
+  <text x="878" y="177" text-anchor="middle" font-size="9" fill="#fbbf24">text-only response</text>
+
+  <rect x="802" y="198" width="151" height="38" rx="8" fill="#78350f" stroke="#f59e0b" stroke-width="1"/>
+  <text x="878" y="213" text-anchor="middle" font-size="10" font-weight="600" fill="#fde68a">🔍 Plan Trace</text>
+  <text x="878" y="227" text-anchor="middle" font-size="9" fill="#fbbf24">each tool step + result</text>
+
+  <rect x="802" y="248" width="151" height="38" rx="8" fill="#78350f" stroke="#f59e0b" stroke-width="1"/>
+  <text x="878" y="263" text-anchor="middle" font-size="10" font-weight="600" fill="#fde68a">📃 Extracted Text</text>
+  <text x="878" y="277" text-anchor="middle" font-size="9" fill="#fbbf24">raw OCR / PDF / audio content</text>
+
+  <rect x="802" y="298" width="151" height="38" rx="8" fill="#78350f" stroke="#f59e0b" stroke-width="1"/>
+  <text x="878" y="313" text-anchor="middle" font-size="10" font-weight="600" fill="#fde68a">💰 Cost Estimate</text>
+  <text x="878" y="327" text-anchor="middle" font-size="9" fill="#fbbf24">tokens in/out · approx USD</text>
+
+  <rect x="802" y="348" width="151" height="38" rx="8" fill="#78350f" stroke="#f59e0b" stroke-width="1"/>
+  <text x="878" y="363" text-anchor="middle" font-size="10" font-weight="600" fill="#fde68a">⏱ Duration</text>
+  <text x="878" y="377" text-anchor="middle" font-size="9" fill="#fbbf24">wall-clock seconds per run</text>
+
+  <!-- Session Store -->
+  <rect x="802" y="410" width="151" height="55" rx="8" fill="#1c1109" stroke="#d97706" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="878" y="428" text-anchor="middle" font-size="10" font-weight="600" fill="#fcd34d">💾 Session Store</text>
+  <text x="878" y="442" text-anchor="middle" font-size="9" fill="#92400e">in-memory (per-session)</text>
+  <text x="878" y="456" text-anchor="middle" font-size="9" fill="#92400e">extracted_texts cached</text>
+
+  <!-- ═══════════════ FLOW ARROWS ═══════════════ -->
+  <!-- User → Express -->
+  <line x1="122" y1="186" x2="122" y2="198" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+
+  <!-- Express → FastAPI (cross-column arrow) -->
+  <line x1="195" y1="219" x2="263" y2="219" stroke="#3b82f6" stroke-width="2" marker-end="url(#arrow-blue)" stroke-dasharray="5,3"/>
+  <text x="229" y="214" text-anchor="middle" font-size="8" fill="#60a5fa">proxy</text>
+
+  <!-- Agent → Tools (horizontal arrows, multiple) -->
+  <line x1="475" y1="310" x2="523" y2="310" stroke="#10b981" stroke-width="2" marker-end="url(#arrow-green)"/>
+  <line x1="475" y1="330" x2="523" y2="360" stroke="#10b981" stroke-width="1.5" marker-end="url(#arrow-green)" opacity="0.6"/>
+  <line x1="475" y1="350" x2="523" y2="410" stroke="#10b981" stroke-width="1.5" marker-end="url(#arrow-green)" opacity="0.4"/>
+  <text x="499" y="305" text-anchor="middle" font-size="8" fill="#34d399">execute</text>
+
+  <!-- Tools → Output -->
+  <line x1="735" y1="310" x2="783" y2="265" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrow-amber)"/>
+  <text x="762" y="280" text-anchor="middle" font-size="8" fill="#fbbf24">result</text>
+
+  <!-- Output → User (bottom loop arrow) -->
+  <path d="M 878 558 Q 878 580 500 600 Q 122 580 122 560" stroke="#64748b" stroke-width="1.5" fill="none" stroke-dasharray="6,3" marker-end="url(#arrow)"/>
+  <text x="500" y="597" text-anchor="middle" font-size="9" fill="#94a3b8">Response to React UI</text>
+
+  <!-- ═══════════════ BOTTOM TECH STACK ═══════════════ -->
+  <line x1="30" y1="570" x2="970" y2="570" stroke="#334155" stroke-width="1"/>
+  <text x="500" y="590" text-anchor="middle" font-size="10" font-weight="600" fill="#94a3b8">Tech Stack</text>
+  <text x="180" y="613" text-anchor="middle" font-size="9" fill="#64748b">Frontend: React 19 · Vite 7 · TailwindCSS · shadcn/ui</text>
+  <text x="500" y="613" text-anchor="middle" font-size="9" fill="#64748b">Backend: FastAPI · Groq API · pytesseract · pypdf · uvicorn</text>
+  <text x="810" y="613" text-anchor="middle" font-size="9" fill="#64748b">Infra: Docker · Node.js proxy · pnpm monorepo · Replit</text>
+
+  <!-- Version badge -->
+  <rect x="870" y="22" width="100" height="22" rx="11" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+  <text x="920" y="37" text-anchor="middle" font-size="9" fill="#64748b">June 2026 · v1.0</text>
+</svg>
